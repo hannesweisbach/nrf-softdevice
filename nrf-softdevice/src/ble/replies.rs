@@ -146,7 +146,6 @@ impl<const DEFERRED_TYPE: u8> DeferredReply<DEFERRED_TYPE> {
             let params = raw::ble_gatts_authorize_params_t {
                 gatt_status: gatt_status.into(),
                 _bitfield_1: raw::ble_gatts_authorize_params_t::new_bitfield_1(u8::from(update)),
-                _bitfield_align_1: [],
                 offset: 0,
                 len: len as u16,
                 p_data,
