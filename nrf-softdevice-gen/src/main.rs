@@ -150,6 +150,14 @@ fn main() {
         res
     });
 
+    let data = data.replace(
+        "pub _bitfield_align_1: [u8; 0],",
+        "pub _bitfield_align_1: [u8; 0] = [],",
+    );
+    let data = data.replace(
+        "pub _bitfield_align_1: [u16; 0],",
+        "pub _bitfield_align_1: [u16; 0] = [],",
+    );
     let mut res = Vec::new();
     res.extend(HEADER.as_bytes());
     res.extend(data.as_bytes());

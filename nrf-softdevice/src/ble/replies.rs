@@ -149,6 +149,7 @@ impl<const DEFERRED_TYPE: u8> DeferredReply<DEFERRED_TYPE> {
                 offset: 0,
                 len: len as u16,
                 p_data,
+                ..
             };
 
             let reply_params = raw::ble_gatts_rw_authorize_reply_params_t {

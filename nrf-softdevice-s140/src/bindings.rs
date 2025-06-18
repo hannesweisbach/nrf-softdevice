@@ -2602,7 +2602,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gatt_char_props_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -2888,7 +2888,7 @@ impl ble_gatt_char_props_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gatt_char_ext_props_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -3103,7 +3103,7 @@ pub struct ble_gattc_char_t {
     pub uuid: ble_uuid_t,
     #[doc = "< Characteristic Properties."]
     pub char_props: ble_gatt_char_props_t,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< Handle of the Characteristic Declaration."]
     pub handle_decl: u16,
@@ -4146,7 +4146,7 @@ pub type BLE_GAP_TX_POWER_ROLES = self::c_uint;
 pub struct ble_gap_adv_properties_t {
     #[doc = "< Advertising type. See @ref BLE_GAP_ADV_TYPES."]
     pub type_: u8,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -4241,7 +4241,7 @@ impl ble_gap_adv_properties_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_adv_report_type_t {
-    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_align_1: [u16; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -4545,7 +4545,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_addr_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< 48-bit address, LSB format.\n@ref addr is not used if @ref addr_type is @ref BLE_GAP_ADDR_TYPE_ANONYMOUS."]
     pub addr: [u8; 6usize],
@@ -4667,7 +4667,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_conn_sec_mode_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -4810,7 +4810,7 @@ pub struct ble_gap_adv_params_t {
     pub primary_phy: u8,
     #[doc = "< Indicates the PHY on which the secondary advertising channel packets\nare transmitted.\nIf set to @ref BLE_GAP_PHY_AUTO, @ref BLE_GAP_PHY_1MBPS will be used.\nValid values are\n@ref BLE_GAP_PHY_1MBPS, @ref BLE_GAP_PHY_2MBPS, and @ref BLE_GAP_PHY_CODED.\nIf @ref ble_gap_adv_properties_t::type is an extended advertising type\nand connectable, this is the PHY that will be used to establish a\nconnection and send AUX_ADV_IND packets on.\n@note This parameter will be ignored when\n@ref ble_gap_adv_properties_t::type is not an extended advertising type."]
     pub secondary_phy: u8,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -4938,7 +4938,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_scan_params_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< Bitfield of PHYs to scan on. If set to @ref BLE_GAP_PHY_AUTO,\nscan_phys will default to @ref BLE_GAP_PHY_1MBPS.\n- If @ref ble_gap_scan_params_t::extended is set to 0, the only\nsupported PHY is @ref BLE_GAP_PHY_1MBPS.\n- When used with @ref sd_ble_gap_scan_start,\nthe bitfield indicates the PHYs the scanner will use for scanning\non primary advertising channels. The scanner will accept\n@ref BLE_GAP_PHYS_SUPPORTED as secondary advertising channel PHYs.\n- When used with @ref sd_ble_gap_connect, the bitfield indicates\nthe PHYs the initiator will use for scanning on primary advertising\nchannels. The initiator will accept connections initiated on either\nof the @ref BLE_GAP_PHYS_SUPPORTED PHYs.\nIf scan_phys contains @ref BLE_GAP_PHY_1MBPS and/or @ref BLE_GAP_PHY_2MBPS,\nthe primary scan PHY is @ref BLE_GAP_PHY_1MBPS.\nIf scan_phys also contains @ref BLE_GAP_PHY_CODED, the primary scan\nPHY will also contain @ref BLE_GAP_PHY_CODED. If the only scan PHY is\n@ref BLE_GAP_PHY_CODED, the primary scan PHY is\n@ref BLE_GAP_PHY_CODED only."]
     pub scan_phys: u8,
@@ -5171,7 +5171,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_sec_kdist_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -5338,7 +5338,7 @@ impl ble_gap_sec_kdist_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_sec_params_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< Minimum encryption key size in octets between 7 and 16. If 0 then not applicable in this instance."]
     pub min_key_size: u8,
@@ -5604,7 +5604,7 @@ impl ble_gap_sec_params_t {
 pub struct ble_gap_enc_info_t {
     #[doc = "< Long Term Key."]
     pub ltk: [u8; 16usize],
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -5923,7 +5923,7 @@ pub struct ble_gap_evt_sec_info_request_t {
     pub peer_addr: ble_gap_addr_t,
     #[doc = "< Master Identification for LTK lookup."]
     pub master_id: ble_gap_master_id_t,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     pub __bindgen_padding_0: u8,
 }
@@ -6060,7 +6060,7 @@ impl ble_gap_evt_sec_info_request_t {
 pub struct ble_gap_evt_passkey_display_t {
     #[doc = "< 6-digit passkey in ASCII ('0'-'9' digits only)."]
     pub passkey: [u8; 6usize],
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -6148,7 +6148,7 @@ const _: () = {
 pub struct ble_gap_evt_lesc_dhkey_request_t {
     #[doc = "< LE Secure Connections remote P-256 Public Key. This will point to the application-supplied memory\ninside the keyset during the call to @ref sd_ble_gap_sec_params_reply."]
     pub p_pk_peer: *mut ble_gap_lesc_p256_pk_t,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     pub __bindgen_padding_0: [u8; 3usize],
 }
@@ -6208,7 +6208,7 @@ impl ble_gap_evt_lesc_dhkey_request_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_sec_levels_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -6500,7 +6500,7 @@ const _: () = {
 pub struct ble_gap_evt_auth_status_t {
     #[doc = "< Authentication status, see @ref BLE_GAP_SEC_STATUS."]
     pub auth_status: u8,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< Levels supported in Security Mode 1."]
     pub sm1_levels: ble_gap_sec_levels_t,
@@ -6756,7 +6756,7 @@ pub struct ble_gap_evt_adv_report_t {
     pub ch_index: u8,
     #[doc = "< Set ID of the received advertising data. Set ID is not present\nif set to @ref BLE_GAP_ADV_REPORT_SET_ID_NOT_AVAILABLE."]
     pub set_id: u8,
-    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_align_1: [u16; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
     #[doc = "< Received advertising or scan response data. If\n@ref ble_gap_adv_report_type_t::status is not set to\n@ref BLE_GAP_ADV_DATA_STATUS_INCOMPLETE_MORE_DATA, the data buffer provided\nin @ref sd_ble_gap_scan_start is now released."]
     pub data: ble_data_t,
@@ -6838,7 +6838,7 @@ impl ble_gap_evt_adv_report_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_evt_sec_request_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -7233,7 +7233,7 @@ pub struct ble_gap_cfg_role_count_t {
     pub central_role_count: u8,
     #[doc = "< Number of SMP instances shared between all connections acting as a central. Default value is @ref BLE_GAP_ROLE_COUNT_CENTRAL_SEC_DEFAULT."]
     pub central_sec_count: u8,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -7300,7 +7300,7 @@ impl ble_gap_cfg_role_count_t {
 pub struct ble_gap_cfg_device_name_t {
     #[doc = "< Write permissions."]
     pub write_perm: ble_gap_conn_sec_mode_t,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< Pointer to where the value (device name) is stored or will be stored."]
     pub p_value: *mut u8,
@@ -7465,7 +7465,7 @@ const _: () = {
 pub struct ble_gap_opt_slave_latency_disable_t {
     #[doc = "< Connection Handle"]
     pub conn_handle: u16,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     pub __bindgen_padding_0: u8,
 }
@@ -7540,7 +7540,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gap_opt_compat_mode_1_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -8397,7 +8397,7 @@ pub struct ble_gatts_attr_md_t {
     pub read_perm: ble_gap_conn_sec_mode_t,
     #[doc = "< Write permissions."]
     pub write_perm: ble_gap_conn_sec_mode_t,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -8743,7 +8743,7 @@ const _: () = {
 pub struct ble_gatts_authorize_params_t {
     #[doc = "< GATT status code for the operation, see @ref BLE_GATT_STATUS_CODES."]
     pub gatt_status: u16,
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
     #[doc = "< Offset of the attribute value being updated."]
     pub offset: u16,
@@ -8852,7 +8852,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_gatts_cfg_service_changed_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -9583,7 +9583,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_pa_lna_cfg_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -9743,7 +9743,7 @@ const _: () = {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_common_opt_conn_evt_ext_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -9799,7 +9799,7 @@ impl ble_common_opt_conn_evt_ext_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ble_common_opt_extended_rc_cal_t {
-    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_align_1: [u8; 0] = [],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
